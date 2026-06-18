@@ -3,25 +3,36 @@
    © 2026 3Shamrocks Studio
    ============================================================ */
 :root{
-  --ink:#121016;
-  --ink-2:#1a1722;
-  --ink-3:#241f30;
-  --paper:#F6F1E9;
-  --paper-2:#efe6d6;
-  --mute:#8c8497;
-  --mute-ink:#8A8378;
-  --line:rgba(255,255,255,.12);
-  --line-ink:#e0d7c8;
-  --brand:#2EBE7A;     /* 3Shamrocks emerald */
-  --clay:#E2603A;      /* AI Brand Kit accent */
-  /* per-brand accents */
+  /* === 3Shamrocks STUDIO house brand — from Design-System/tokens.css === */
+  --ink:#0d111a;        /* n-950 cosmic navy — hub background */
+  --ink-2:#161b24;      /* n-900 surface */
+  --ink-3:#212732;      /* n-800 raised surface */
+  --paper:#eef1f6;      /* light text on the dark hub */
+  --paper-2:#e6eaf0;
+  --mute:#8893a4;       /* n-400 — muted text on navy */
+  --mute-ink:#8A8378;   /* (AI Brand Kit product world) */
+  --line:rgba(180,189,202,.14);
+  --line-ink:#e0d7c8;   /* (AI Brand Kit product world) */
+  --brand:#52cc7a;      /* shamrock green — studio signature accent */
+  --indigo:#5f4fcc;     /* cosmic indigo — studio primary */
+  --indigo-lite:#7a6bd8;
+  --brand-gradient:linear-gradient(120deg,#5f4fcc 0%,#2aa765 100%);
+  --logoback:#1f2c3e;   /* mandatory wordmark backing (brand book) */
+  --clay:#E2603A;       /* AI Brand Kit product accent */
+  /* per-brand accents (each page's own documented brand colour) */
   --solo:#C6FF3A;
   --pp:#FF4D6D;
   --auto:#5B8CFF;
   --fd:#5FE3A1;
   --maxw:1080px;
+  --serif:'Space Grotesk','Inter',system-ui,sans-serif;  /* studio display */
+  --sans:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+/* The AI Brand Kit is its own product world — the framework permits this
+   ("no studio-wide palette imposed on products"). Clay/cream + Fraunces. */
+body.kit{
+  --ink:#16151A; --paper:#F6F1E9; --paper-2:#efe6d6;
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
-  --sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -45,8 +56,9 @@ a{color:inherit;text-decoration:none}
   font-family:var(--sans);
 }
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--clay);color:#fff}
-.btn-emerald{background:var(--brand);color:#06160e}
+.btn-primary{background:var(--brand-gradient);color:#fff}
+body.kit .btn-primary{background:var(--clay)}   /* AI Brand Kit product world */
+.btn-emerald{background:var(--brand);color:#08231a}
 .btn-ghost{background:transparent;border-color:var(--line);color:var(--paper)}
 .btn-ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.04)}
 .btn-block{display:flex;width:100%}
@@ -55,7 +67,9 @@ a{color:inherit;text-decoration:none}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brandmark{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.02em}
-.brandmark .logo{height:26px;width:auto;display:block}
+/* Brand rule: the wordmark ALWAYS sits on the dark-grey backing #1f2c3e */
+.brandmark .logo-back{background:var(--logoback);border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center}
+.brandmark .logo{height:22px;width:auto;display:block}
 .brandmark .tag{font-size:.6rem;letter-spacing:.22em;color:var(--mute);font-weight:600;text-transform:uppercase;border-left:1px solid var(--line);padding-left:11px}
 body.kit .brandmark .tag{border-left-color:var(--line-ink);color:var(--mute-ink)}
 .topnav{display:flex;gap:22px;font-size:.86rem}
@@ -64,9 +78,9 @@ body.kit .brandmark .tag{border-left-color:var(--line-ink);color:var(--mute-ink)
 
 /* ---------- hero ---------- */
 .hero{padding:84px 0 56px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1100px 460px at 50% -8%,rgba(46,190,122,.16),transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1100px 460px at 50% -8%,rgba(95,79,204,.22),transparent 60%);pointer-events:none}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6.6vw,4.6rem);line-height:1.04;letter-spacing:-.02em;margin:18px auto 0;max-width:14ch}
-.hero h1 em{font-style:italic;color:var(--brand)}
+.hero h1 em{font-style:normal;color:var(--brand)}
 .hero p.lede{max-width:46ch;margin:22px auto 0;font-size:1.12rem;color:#cdc6d6}
 .hero .cta-row{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
@@ -83,12 +97,12 @@ section{padding:64px 0}
   display:grid;grid-template-columns:1.1fr .9fr;gap:0;
 }
 .feature .copy{padding:46px}
-.feature .tag{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);font-weight:700;border:1px solid rgba(226,96,58,.4);border-radius:999px;padding:5px 12px}
+.feature .tag{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand);font-weight:700;border:1px solid rgba(82,204,122,.4);border-radius:999px;padding:5px 12px}
 .feature h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.08;margin:16px 0 12px;letter-spacing:-.015em}
-.feature h3 em{font-style:italic;color:var(--clay)}
+.feature h3 em{font-style:normal;color:var(--brand)}
 .feature ul{list-style:none;padding:0;margin:18px 0 26px;display:grid;gap:9px}
 .feature li{padding-left:26px;position:relative;color:#d8d2df;font-size:.98rem}
-.feature li::before{content:"›";position:absolute;left:6px;color:var(--clay);font-weight:700}
+.feature li::before{content:"›";position:absolute;left:6px;color:var(--brand);font-weight:700}
 .feature .price{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
 .feature .price .now{font-family:var(--serif);font-size:2rem;font-weight:600}
 .feature .price .was{color:var(--mute);text-decoration:line-through}
@@ -121,7 +135,7 @@ section{padding:64px 0}
 .brand-card .lnk.solid .arr{color:#0c0a10}
 
 /* ---------- email capture ---------- */
-.capture{background:linear-gradient(160deg,#15241b,#0f1a14);border:1px solid rgba(46,190,122,.28);border-radius:22px;padding:48px;text-align:center}
+.capture{background:linear-gradient(160deg,#15241b,#0f1a14);border:1px solid rgba(82,204,122,.3);border-radius:22px;padding:48px;text-align:center}
 .capture h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:8px 0 10px;letter-spacing:-.01em}
 .capture p{color:#bfd6c8;max-width:44ch;margin:0 auto 26px}
 .eform{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
