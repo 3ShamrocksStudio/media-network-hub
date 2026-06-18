@@ -13,7 +13,7 @@
      CONFIG — Dave edits these two lines after Gumroad setup.
      (See SETUP-NEXT.md)
      ---------------------------------------------------------- */
-  var GUMROAD_URL = "";                 // e.g. "https://3shamrocks.gumroad.com/l/ai-brand-kit"
+  var GUMROAD_URL = "https://markodave.gumroad.com/l/ruaqk";   // The AI Brand Kit — live
   var FORMSPREE_ID = "";                // e.g. "xayzqwer"  (from formspree.io)
   /* ---------------------------------------------------------- */
 

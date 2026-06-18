@@ -5,7 +5,7 @@ A self-hosted **link-in-bio hub** + **product landing page** for the 3Shamrocks 
 **Live:** https://3shamrocksstudio.github.io/media-network-hub/
 
 ## Pages
-- **`index.html`** — the link-in-bio hub. One premium page with a section per brand (Solo Stack, Prompt & Pixel, One Percent Daily, First Dollar). Each IG page points its bio link here; deep-link a single brand with an anchor, e.g. `…/#solo-stack`.
+- **`index.html`** — the link-in-bio hub. One premium page with a section per brand (Solo Stack, Prompt & Pixel, Autopilot, First Dollar). Each IG page points its bio link here; deep-link a single brand with an anchor, e.g. `…/#solo-stack`, `…/#autopilot`.
 - **`kit.html`** — the landing page for **The AI Brand Kit** ($29): hero, benefits, what's inside, price, FAQ, buy CTA + email capture.
 
 ## Wiring it up (see `SETUP-NEXT.md` in the project root)
