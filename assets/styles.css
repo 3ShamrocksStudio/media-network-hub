@@ -19,11 +19,11 @@
   --brand-gradient:linear-gradient(120deg,#5f4fcc 0%,#2aa765 100%);
   --logoback:#1f2c3e;   /* mandatory wordmark backing (brand book) */
   --clay:#E2603A;       /* AI Brand Kit product accent */
-  /* per-brand accents (each page's own documented brand colour) */
-  --solo:#C6FF3A;
-  --pp:#FF4D6D;
-  --auto:#5B8CFF;
-  --fd:#5FE3A1;
+  /* per-brand mascot accents (each page's own documented brand colour) */
+  --scout:#d9a441;   /* Scout — brass (real estate) */
+  --fetch:#ff7a2f;   /* Fetch — safety orange (service lead-gen) */
+  --inq:#8a78f2;     /* Inq — ink violet (design) */
+  --echo:#2fd0ac;    /* Echo — stage teal (AI video) */
   --maxw:1080px;
   --serif:'Space Grotesk','Inter',system-ui,sans-serif;  /* studio display */
   --sans:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
@@ -147,7 +147,7 @@ section{padding:64px 0}
 .eform input:focus{outline:2px solid var(--brand);outline-offset:1px}
 .form-note{font-size:.78rem;color:#8fae9c;margin-top:14px}
 .form-msg{margin-top:16px;font-weight:600;min-height:1.2em}
-.form-msg.ok{color:var(--fd)}
+.form-msg.ok{color:var(--echo)}
 .form-msg.err{color:#ff8d6d}
 
 /* ---------- footer ---------- */
